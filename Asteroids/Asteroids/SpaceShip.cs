@@ -39,5 +39,35 @@ namespace Asteroids
                 this.Degrees += 4;
             }
         }
+
+        public void WrapScreen()
+        {
+            if(this.position.X < 0)
+            {
+                this.position.X = Asteroids.Screen.X;
+            }
+
+            if (this.position.X > Asteroids.Screen.X)
+            {
+                this.position.X = 0;
+            }
+
+            if (this.position.Y < 0)
+            {
+                this.position.Y = Asteroids.Screen.Y;
+            }
+
+            if (this.position.Y > Asteroids.Screen.Y)
+            {
+                this.position.Y = 0;
+            }
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+
+            WrapScreen();
+        }
     }
 }
