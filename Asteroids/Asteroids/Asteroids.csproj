@@ -73,12 +73,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bullet.cs" />
+    <Compile Include="GameOverState.cs" />
     <Compile Include="MissileCommand.cs" />
     <Compile Include="PlayingState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Rock.cs" />
     <Compile Include="RotatingSpriteGameObject.cs" />
+    <Compile Include="Score.cs" />
     <Compile Include="SpaceShip.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -35,6 +35,7 @@ namespace Asteroids
 
             // TODO: use this.Content to load your game content here      
             gameStateManager.AddGameState("PlayingState", new PlayingState());
+            gameStateManager.AddGameState("GameOverState", new GameOverState());
             gameStateManager.SwitchTo("PlayingState");
         }
 

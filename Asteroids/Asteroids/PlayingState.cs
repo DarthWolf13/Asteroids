@@ -13,12 +13,14 @@ namespace Asteroids
         GameObjectList bullets, rocks;
         int rockAmount = 20;
         string rockType;
+        Score score;
 
         public PlayingState()
         {
             ship = new SpaceShip();
             bullets = new GameObjectList();
             rocks = new GameObjectList();
+            score = new Score();
 
             string[] rock = new string[] {"spr_rock1", "spr_rock2", "spr_rock3"};
             
@@ -27,6 +29,7 @@ namespace Asteroids
             this.Add(ship);
             this.Add(bullets);
             this.Add(rocks);
+            this.Add(score);
 
             for(int i = 0; i < rockAmount; i++)
             {
@@ -56,6 +59,7 @@ namespace Asteroids
                     if (bullet.CollidesWith(rock))
                     {
                         bullet.Visible = false;
+                        score.ScoreValue += 10;
 
                         if (rock.assetname == "spr_rock3") {
                             rock.Visible = false;
@@ -74,6 +78,16 @@ namespace Asteroids
                             break;
                         }                        
                     }
+
+                    
+                }
+            }
+
+            foreach (Rock rock in rocks.Objects)
+            {
+                if (ship.CollidesWith(rock))
+                {
+                    Asteroids.GameStateManager.SwitchTo("GameOverState");
                 }
             }
         }
